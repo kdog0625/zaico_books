@@ -16,3 +16,31 @@
 .search-form{
   margin: 0 auto;
 }
+
+.register-content{
+  padding-top: 50px;
+}
+
+.register-content-main{
+  width: 500px;
+  text-align: center;
+  border-radius: 0.25rem;
+  max-width: 400px;
+  margin: 0 auto;
+  overflow: hidden;
+  font-weight: 400;
+  border: 1px solid rgba(0,0,0,.125);
+  box-shadow: 0 0.5em 1em rgba(0,0,0,.15);
+}
+
+.register-content-padding{
+  padding: 45px 30px 45px 30px;
+}
+
+.register-content-logo{
+  width: 320px;
+  margin: 0 auto;
+    margin-bottom: 10px;
+    width: 100%;
+    height: auto;
+}
