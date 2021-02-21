@@ -8,7 +8,7 @@
   <ul class="navbar-nav">
     @guest 
     <li class="nav-item user_interval">
-      <a class="nav-link" href=""><i class="fas fa-user-plus mr-1"></i>ユーザー登録</a>
+      <a class="nav-link" href="{{ route('register') }}"><i class="fas fa-user-plus mr-1"></i>ユーザー登録</a>
     </li>
     @endguest
 
