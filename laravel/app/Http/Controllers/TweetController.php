@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Tweet; 
+use App\Http\Requests\TweetRequest;
 use Illuminate\Http\Request;
 
 class TweetController extends Controller
@@ -23,7 +24,7 @@ class TweetController extends Controller
      */
     public function create()
     {
-        //
+        return view('tweets.create'); 
     }
 
     /**
@@ -32,9 +33,18 @@ class TweetController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Tweet $tweet)
     {
-        //
+        $tweet->zaico_number = $request->zaico_number;
+        $tweet->zaico_name = $request->zaico_name;
+        $tweet->zaico_image = $request->zaico_image;
+        $tweet->zaico_count = $request->zaico_count;
+        $tweet->content = $request->content;
+        $tweet->category = $request->category;
+        $tweet->zaico_storage = $request->zaico_storage;
+        $tweet->user_id = $request->user()->id;
+        $tweet->save();
+        return redirect()->route('tweets.index');
     }
 
     /**
