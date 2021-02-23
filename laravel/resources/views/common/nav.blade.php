@@ -25,6 +25,12 @@
     @endguest
 
     @auth
+    <li class="nav-item">
+      <a class="nav-link" href="{{ route('tweets.create') }}"><i class="fas fa-pen mr-1"></i>投稿する</a>
+    </li>
+    @endauth
+
+    @auth
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
          aria-haspopup="true" aria-expanded="false">

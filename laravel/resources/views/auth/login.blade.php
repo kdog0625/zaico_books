@@ -5,7 +5,7 @@
 @section('content')
 
 <div class="wrapper">
-  @include('common/header')
+  @include('common/nav')
     <div class="register-content">
       <div class="register-content-main">
         <div class="register-content-padding">
