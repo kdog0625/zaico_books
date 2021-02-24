@@ -7,19 +7,40 @@
 <div class="wrapper">
   @include('common/nav')
   <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <div class="card mt-3">
-          <div class="card-body pt-0">
-            <div class="card-text">
-              <form method="POST" action="{{ route('tweets.store') }}">
-                @include('tweets.form')
-                <button type="submit" class="btn blue-gradient btn-block">投稿する</button>
-              </form>
-            </div>
-          </div>
+    <div class="main-content">
+      <h1>新規在庫登録</h1>
+      <form method="POST" action="{{ route('tweets.store') }}">
+      @csrf
+        <div class="create_zaico_number">
+          <label>型番</label>
+          <input type="text" name="zaico_number" class="form-control" required value="{{ old('zaico_number') }}">
         </div>
-      </div>
+        <div class="create_zaico_name">
+          <label>商品名</label>
+          <input type="text" name="zaico_name" class="form-control" required value="{{ old('zaico_name') }}">
+        </div>
+        <div class="create_zaico_number">
+          <label>在庫数</label>
+          <input type="text" name="zaico_count" class="form-control" required value="{{ old('zaico_number') }}">
+        </div>
+        <div class="create_zcategory">
+          <label>カテゴリー</label>
+          <input type="text" name="category" class="form-control" required value="{{ old('zaico_number') }}">
+        </div>
+        <div class="create_zaico_number">
+          <label>保管場所</label>
+          <input type="text" name="zaico_storage" class="form-control" required value="{{ old('zaico_number') }}">
+        </div>
+        <div class="create_zaico_image">
+          <label>画像</label>
+          <input type="file" name="zaico_image" class="form-control" required value="{{ old('zaico_image') }}">
+        </div>
+        <div class="create_content">
+          <label></label>
+          <textarea name="content" required class="form-control" rows="16" placeholder="説明">{{ old('content') }}</textarea>
+        </div>
+        <button type="submit" class="btn blue-gradient btn-block">投稿する</button>
+      </form>
     </div>
   </div>
   @include('common/footer')

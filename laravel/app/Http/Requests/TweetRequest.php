@@ -24,7 +24,13 @@ class TweetRequest extends FormRequest
     public function rules()
     {
         return [
-            
+            'zaico_number' =>  ['required', 'string', 'alpha_num', 'min:1', 'max:255', 'unique:tweets'],
+            'zaico_name' => ['required', 'string', 'min:1', 'max:255'],
+            'zaico_count' => ['required', 'integer','min1'],
+            'content' => ['nullable'],
+            'category' => ['nullable'],
+            'zaico_storage' => ['nullable'],
+            'zaico_image' => ['file','mimes:jpeg,png,jpg,bmb','max:2048', 'nullable'],
         ];
     }
 
@@ -32,12 +38,12 @@ class TweetRequest extends FormRequest
     {
         return [
             'zaico_number' => '型番',
-            'zaico_name' => '本文',
-            'zaico_image' => '本文',
-            'zaico_count' => '本文',
+            'zaico_name' => '商品名',
+            'zaico_image' => '画像',
+            'zaico_count' => '在庫数',
             'content' => '本文',
-            'category' => '本文',
-            'zaico_storage' => '本文',
+            'category' => 'カテゴリ',
+            'zaico_storage' => '保管場所',
         ];
     }
 }
