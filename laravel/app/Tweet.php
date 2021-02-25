@@ -10,7 +10,7 @@ class Tweet extends Model
     protected $fillable = [
         'zaico_number',
         'zaico_name',
-        'zaico_image',
+        'zaico_image'=> 'image|file',
         'zaico_count',
         'content',
         'category',
