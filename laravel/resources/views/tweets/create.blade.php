@@ -9,7 +9,7 @@
   <div class="container">
     <div class="main-content">
       <h1>新規在庫登録</h1>
-      <form method="POST" action="{{ route('tweets.store') }}">
+      <form method="POST" action="{{ route('tweets.store') }}" enctype="multipart/form-data">
       @csrf
         <div class="create_zaico_number">
           <label>型番</label>

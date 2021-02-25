@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Tweet; 
 use App\Http\Requests\TweetRequest;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
 class TweetController extends Controller
@@ -35,9 +36,17 @@ class TweetController extends Controller
      */
     public function store(Request $request, Tweet $tweet)
     {
+        if ($file = $request->zaico_image) {
+            $fileName = time() . $file->getClientOriginalName();
+            $target_path = public_path('images/');
+            $file->move($target_path, $fileName);
+        } else {
+            $fileName = "";
+        }
+        $tweet->fill($request->all()); 
         $tweet->zaico_number = $request->zaico_number;
         $tweet->zaico_name = $request->zaico_name;
-        $tweet->zaico_image = $request->zaico_image;
+        $tweet->zaico_image = $fileName;
         $tweet->zaico_count = $request->zaico_count;
         $tweet->content = $request->content;
         $tweet->category = $request->category;
