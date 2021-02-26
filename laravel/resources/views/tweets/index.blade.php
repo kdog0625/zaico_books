@@ -19,7 +19,7 @@
         </tr>
         @foreach($tweets as $tweet) 
         <tr>
-          <th>{{ $tweet->zaico_number }}</th>
+          <th><a class="dropdown-item" href="{{ route('tweets.show', ['tweet' => $tweet]) }}">{{ $tweet->zaico_number }}</a></th>
           <th>{{ $tweet->zaico_name }}</th>
           <th>{{ $tweet->zaico_count }}</th>
           <th>{{ $tweet->category }}</th>
