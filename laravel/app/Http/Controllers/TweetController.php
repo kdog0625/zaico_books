@@ -15,7 +15,8 @@ class TweetController extends Controller
      */
     public function index()
     {
-        return view('tweets.index'); 
+        $tweets = Tweet::all()->sortByDesc('created_at');
+        return view('tweets.index')->with(['tweets' => $tweets]); 
     }
 
     /**
@@ -62,9 +63,9 @@ class TweetController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Tweet $tweet)
     {
-        //
+        return view('tweets.show', ['tweet' => $tweet]);
     }
 
     /**
