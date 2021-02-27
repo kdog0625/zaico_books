@@ -2,12 +2,18 @@
 
 namespace App\Http\Controllers;
 use App\Tweet; 
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\TweetRequest;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
 class TweetController extends Controller
 {
+
+    public function __construct()
+{
+    $this->middleware('auth');
+}
     /**
      * Display a listing of the resource.
      *
@@ -15,10 +21,13 @@ class TweetController extends Controller
      */
     public function index()
     {
-        $tweets = Tweet::all()->sortByDesc('created_at');
-        return view('tweets.index')->with(['tweets' => $tweets]); 
+        $tweets = Tweet::where('user_id', Auth::id())->get();
+        $items = Tweet::where('status', 0)->get();
+        $user_id = Tweet::where('user_id','<>', Auth::id())->get();
+        return view('tweets.index')->with(['items' => $items, 'tweets' => $tweets, 'user_id' => $user_id]);
     }
 
+    
     /**
      * Show the form for creating a new resource.
      *
