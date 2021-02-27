@@ -1,12 +1,6 @@
 <nav class="navbar navbar-expand navbar-dark header-back">
-<div class="container d-flex justify-content-center px-4">
-    <a class="navbar-brand nav-link font-weight-bold bg-guest title-p_auto" href="/"><i class="fas fa-warehouse mr-1"></i>zaico_books</a>
-    @auth
-    <form method="GET" action="{{ route('tweets.index') }}" class="search-form form-inline w-25 d-none d-md-flex">
-      <span></span>
-      <input class="form-control w-100" name="search" type="search" placeholder="シェアを検索" value="{{ $search ?? old('search') }}">
-    </form>
-    @endauth
+<div class="container d-flex px-4">
+    <a class="navbar-brand nav-link font-weight-bold title-p_auto" href="/"><i class="fas fa-warehouse mr-1"></i>zaico_books</a>
     <ul class="navbar-nav">
     @auth
     <li class="nav-item">
@@ -16,13 +10,12 @@
 
     @auth
     <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
-         aria-haspopup="true" aria-expanded="false">
-        <i class="fas fa-user-circle"></i>
+      <a class="nav-link dropdown-toggle bg-guest" id="navbarDropdownMenuLink" data-toggle="dropdown"
+         aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i>{{ Auth::user()->name }}さんログイン中
       </a>
       <div class="dropdown-menu dropdown-menu-right dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
         <button class="dropdown-item" type="button"
-                onclick="location.href=''">
+          onclick="location.href=''">
           マイページ
         </button>
         <div class="dropdown-divider"></div>
