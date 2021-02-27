@@ -20,7 +20,7 @@
             <th style="width: 29.3%;">商品名</th>
             <th style="width: 12.8%;">在庫数</th>
             <th style="width: 23.4%;">カテゴリ</th>
-            <th style="width: 10.7%;">画像</th>
+            <th style="width: 10.0%;">画像</th>
           </tr>
           @if($tweets)
             @foreach($tweets as $tweet)
@@ -29,7 +29,7 @@
                 <th>{{ $tweet->zaico_name }}</th>
                 <th>{{ $tweet->zaico_count }}</th>
                 <th>{{ $tweet->category }}</th>
-                <th>{{ $tweet->zaico_image }}</th>
+                <th><img class="zaico_ima" src="/images/{{ $tweet->zaico_image }}"></th>
               </tr>
             @endforeach
           @endif
