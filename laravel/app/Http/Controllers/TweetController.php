@@ -83,9 +83,9 @@ class TweetController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tweet $tweet)
+    public function edit($id)
     {
-        return view('tweets.edit', ['tweet' => $tweet]);    
+        //
     }
 
     /**
@@ -95,7 +95,7 @@ class TweetController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
         //
     }
