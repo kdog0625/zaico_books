@@ -41,12 +41,18 @@
 }
 
 .main_left{
+  width: 22%;
   float: left;
   margin-top: 100px;
 }
 
 .main_right{
-  width: 65%;
+  width: 72%;
   float: right;
   margin-top: 100px;
+}
+
+.tr-white{
+  background-color: #fff;
+  color: black;
 }
