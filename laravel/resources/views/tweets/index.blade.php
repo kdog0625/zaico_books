@@ -9,8 +9,12 @@
   <div class="container">
     <div class="card mb-4 main_left"> 
       <div class="card-header text-center"><i class="fas fa-tags"></i>オススメユーザー</div>
-        <div class="card-body">
-          <li>ユーザー1</li>
+        <div class="card-body py-3 mx-auto">
+          <p>ユーザー1</p>
+          <p>ユーザー2</p>
+          <p>ユーザー3</p>
+          <p>ユーザー4</p>
+          <p>ユーザー5</p>
         </div>
     </div>
     <div class="card main_right">   
@@ -29,7 +33,7 @@
               <tr>
                 <th class="tr-white"><a class="dropdown-item" href="{{ route('tweets.show', ['tweet' => $tweet]) }}">{{ $tweet->zaico_number }}</a></th>
                 <th class="tr-white">{{ $tweet->zaico_name }}</th>
-                <th class="tr-white">{{ $tweet->zaico_count }}</th>
+                <th class="tr-white tr-right">{{ $tweet->zaico_count }}</th>
                 <th class="tr-white">{{ $tweet->category }}</th>
                 <th class="tr-white"><img class="zaico_ima" src="/images/{{ $tweet->zaico_image }}"></th>
                 <th class="tr-white">{{ $tweet->updated_at }}</th>
