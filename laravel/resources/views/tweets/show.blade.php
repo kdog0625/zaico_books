@@ -9,7 +9,11 @@
   <div class="container">
     <div class="main-content">
         <tr>
-          <th><a class="dropdown-item" href="{{ route('tweets.show', ['tweet' => $tweet]) }}">{{ $tweet->zaico_number }}</a></th>
+          <th>
+            @if( Auth::id() === $tweet->user_id )<a class="dropdown-item" href="{{ route('tweets.edit', ['tweet' => $tweet]) }}">@endif
+              {{ $tweet->zaico_number }}
+            </a>
+          </th>
           <th>{{ $tweet->zaico_name }}</th>
           <th>{{ $tweet->zaico_count }}</th>
           <th>{{ $tweet->category }}</th>
