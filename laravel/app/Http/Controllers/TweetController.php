@@ -95,9 +95,19 @@ class TweetController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, Tweet $tweet)
     {
-        //
+        Storage::delete(public_path('images/') . $tweet->zaico_image);
+        if ($file = $request->zaico_image) {
+            $fileName = time() . $file->getClientOriginalName();
+            print_r($fileName);
+            $target_path = public_path('images/');
+            $file->move($target_path, $fileName);
+        } else {
+            $fileName = "";
+        }
+        $tweet->fill($request->all())->save();
+        return redirect()->route('tweets.index');
     }
 
     /**
