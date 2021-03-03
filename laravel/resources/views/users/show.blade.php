@@ -22,7 +22,6 @@
                     <h2 class="h5 card-title font-weight-bold mb-3">{{ $user->email }}</h2>
                     <h2 class="h5 card-title font-weight-bold mb-3">パスワードを変更する</h2>
                     <h2 class="h5 card-title font-weight-bold mb-3">{{ $user->created_at }}</h2>
-
                   </div>
                 </div>
               </div>
