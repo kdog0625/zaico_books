@@ -18,6 +18,11 @@
           <th>{{ $tweet->zaico_count }}</th>
           <th>{{ $tweet->category }}</th>
           <th>{{ $tweet->zaico_image }}</th>
+          <form method="POST" action="{{ route('tweets.destroy', ['tweet' => $tweet]) }}">
+          {{ csrf_field() }}
+          {{ method_field('delete') }}
+          <button type="submit" class="btn btn-danger">削除する</button>
+          </form>
         </tr>
     </div>
   </div>
