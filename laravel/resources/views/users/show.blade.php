@@ -12,9 +12,12 @@
         <div class="card my-4">
           <div class="card-body">
             <div class="d-flex flex-row row">
-              <div class="col-3 text-center">
-                <img class="profile-icon rounded-circle" src="" alt="プロフィールアイコン">
-              </div>
+              <span class="avatar-form image-picker">
+                  <input type="file" name="avatar" class="d-none" accept="image/png,image/jpeg,image/gif" id="avatar" />
+                  <label for="avatar" class="d-inline-block">
+                      <img src="/images/avatar-default.svg" class="rounded-circle" style="object-fit: cover; width: 200px; height: 200px;">
+                  </label>
+              </span>
               <div class="col-9">
                 <div class="row mb-2">
                   <div class="col-5">
@@ -25,6 +28,7 @@
                   </div>
                 </div>
               </div>
+              <a href="{{ route('users.edit', ['user' => Auth::user()]) }}">aaa</a>
             </div>
           </div>
         </div>
