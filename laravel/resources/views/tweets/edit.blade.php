@@ -9,7 +9,7 @@
   <div class="container">
     <div class="main-content">
       <h1>在庫編集</h1>
-      <form method="POST" action="{{ route('tweets.update', ['tweet' => $tweet]) }}" enctype="multipart/form-data">
+      <form method="POST" action="" enctype="multipart/form-data">
       @method('PATCH')
       @csrf
         <div class="create_zaico_number">
@@ -45,6 +45,6 @@
     </div>
   </div>
   @include('common/footer')
-</div>  
+</div>
 
 @endsection

@@ -11,4 +11,13 @@ class UserController extends Controller
         $user = Auth::user();
         return view('users.show', ['user' => $user]);
     }
+
+    public function edit(){
+        $user = Auth::user();
+        return view('users.edit', ['user' => $user]);
+    }
+
+    public function update(Request $request, User $user) {
+        return redirect()->route('users.show',['user' => $user]);
+    }
 }
