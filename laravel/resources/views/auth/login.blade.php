@@ -13,6 +13,7 @@
             <a href="{{ route('tweets.index') }}">zaico_books</a>
           </div>
           <div class="register-content-register">
+          @include('common/error_card_list')
           <form method="POST" action="{{ route('login') }}">
                 @csrf
 
@@ -25,7 +26,7 @@
                   <label for="password">パスワード</label>
                   <input class="form-control" type="password" id="password" name="password" required>
                 </div>
- 
+
                 <input type="hidden" name="remember" id="remember" value="on">
                 <button class="btn btn-block blue-gradient mt-2 mb-2" type="submit">ログイン</button>
               </form>
@@ -37,4 +38,4 @@
       </div>
     </div>
   @include('common/footer')
-</div>  
+</div>

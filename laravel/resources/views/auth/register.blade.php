@@ -12,6 +12,7 @@
           <div class="register-content-logo">
             <a href="{{ route('tweets.index') }}">zaico_books</a>
           </div>
+            @include('common/error_card_list')
             <div class="register-content-register">
             <form method="POST" action="{{ route('register') }}">
                   @csrf
@@ -49,4 +50,4 @@
       </div>
     </div>
   @include('common/footer')
-</div>  
+</div>
