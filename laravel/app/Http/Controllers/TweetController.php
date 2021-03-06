@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Tweet; 
+use App\Tweet;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\TweetRequest;
 use Illuminate\Support\Facades\Storage;
@@ -27,7 +27,7 @@ class TweetController extends Controller
         return view('tweets.index')->with(['items' => $items, 'tweets' => $tweets, 'user_id' => $user_id]);
     }
 
-    
+
     /**
      * Show the form for creating a new resource.
      *
@@ -35,7 +35,7 @@ class TweetController extends Controller
      */
     public function create()
     {
-        return view('tweets.create'); 
+        return view('tweets.create');
     }
 
     /**
@@ -44,7 +44,7 @@ class TweetController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Tweet $tweet)
+    public function store(TweetRequest $request, Tweet $tweet)
     {
         if ($file = $request->zaico_image) {
             $fileName = time() . $file->getClientOriginalName();
@@ -53,7 +53,7 @@ class TweetController extends Controller
         } else {
             $fileName = "";
         }
-        $tweet->fill($request->all()); 
+        // $tweet->fill($request->all());
         $tweet->zaico_number = $request->zaico_number;
         $tweet->zaico_name = $request->zaico_name;
         $tweet->zaico_image = $fileName;
@@ -85,7 +85,7 @@ class TweetController extends Controller
      */
     public function edit(Tweet $tweet)
     {
-        return view('tweets.edit', ['tweet' => $tweet]);    
+        return view('tweets.edit', ['tweet' => $tweet]);
     }
 
     /**
