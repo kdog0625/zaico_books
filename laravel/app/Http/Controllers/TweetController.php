@@ -47,6 +47,7 @@ class TweetController extends Controller
     public function store(TweetRequest $request, Tweet $tweet)
     {
         if ($file = $request->zaico_image) {
+            //getClientOriginalNameでアップロードしたファイルの元の名前を知る事ができる。
             $fileName = time() . $file->getClientOriginalName();
             $target_path = public_path('images/');
             $file->move($target_path, $fileName);
