@@ -12,7 +12,11 @@
                         <div class="card-body">
                             <div class="d-flex flex-row row">
                                 <div class="col-3 text-center">
-                                    <img class="profile-icon rounded-circle" src="" alt="プロフィールアイコン">
+                                    @if(!$user->prof_image)
+                                        <img class="zaico_ima" src="/images/User/default.png">
+                                    @else
+                                        <img class="zaico_ima" src="/images/User/{{ $user->prof_image }}">
+                                    @endif
                                 </div>
                                 <div class="col-9">
                                     <div class="row mb-2">

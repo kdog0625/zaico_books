@@ -65,7 +65,7 @@
                                 <td class="tr-white"><a class="dropdown-item" href="{{ route('tweets.show', ['tweet' => $tweet]) }}">{{ $tweet->category }}</a></td>
                                 <td class="tr-white">
                                     @if($tweet->zaico_image)
-                                        <a class="dropdown-item" href="{{ route('tweets.show', ['tweet' => $tweet]) }}"><img class="zaico_ima" src="/images/{{ $tweet->zaico_image }}"></a>
+                                        <a class="dropdown-item" href="{{ route('tweets.show', ['tweet' => $tweet]) }}"><img class="zaico_ima" src="/images/Tweet/{{ $tweet->zaico_image }}"></a>
                                     @endif
                                 </td>
                                 <td class="tr-white"><a class="dropdown-item" href="{{ route('tweets.show', ['tweet' => $tweet]) }}">{{ $tweet->updated_at->format('Y/m/d') }}</a></td>
