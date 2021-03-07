@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Tweet extends Model
 {
-    //==========ここから追加==========
     protected $fillable = [
         'zaico_number',
         'zaico_name',
@@ -17,7 +16,6 @@ class Tweet extends Model
         'category',
         'zaico_storage',
     ];
-    //==========ここまで追加==========
 
     public function user()
     {

@@ -24,9 +24,9 @@ class TweetRequest extends FormRequest
     public function rules()
     {
         return [
-            'zaico_number' =>  ['required', 'string', 'alpha_num', 'min:1', 'max:255', 'unique:tweets'],
-            'zaico_name' => ['required', 'string', 'min:1', 'max:255'],
-            'zaico_count' => ['required', 'integer','min1'],
+            'zaico_number' =>  ['required', 'string', 'regex:/^[a-zA-Z0-9]+$/', 'max:255'],
+            'zaico_name' => ['required', 'string',  'max:255'],
+            'zaico_count' => ['required', 'integer'],
             'content' => ['nullable'],
             'category' => ['nullable'],
             'zaico_storage' => ['nullable'],
