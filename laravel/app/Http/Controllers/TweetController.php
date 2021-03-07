@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\TweetRequest;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
+use phpDocumentor\Reflection\Types\This;
 
 class TweetController extends Controller
 {
@@ -54,14 +55,7 @@ class TweetController extends Controller
         } else {
             $fileName = "";
         }
-        // $tweet->fill($request->all());
-        $tweet->zaico_number = $request->zaico_number;
-        $tweet->zaico_name = $request->zaico_name;
-        $tweet->zaico_image = $fileName;
-        $tweet->zaico_count = $request->zaico_count;
-        $tweet->content = $request->content;
-        $tweet->category = $request->category;
-        $tweet->zaico_storage = $request->zaico_storage;
+        $tweet->fill($request->all());
         $tweet->user_id = $request->user()->id;
         $tweet->save();
         return redirect()->route('tweets.index');
@@ -96,18 +90,21 @@ class TweetController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tweet $tweet)
+    public function update(TweetRequest $request, Tweet $tweet)
     {
-        Storage::delete(public_path('images/') . $tweet->zaico_image);
+        $params=$request->all();
+        Storage::delete( $tweet->zaico_image);
         if ($file = $request->zaico_image) {
             $fileName = time() . $file->getClientOriginalName();
-            print_r($fileName);
+            $params['zaico_image'] = $fileName;
             $target_path = public_path('images/');
             $file->move($target_path, $fileName);
         } else {
             $fileName = "";
         }
-        $tweet->fill($request->all())->save();
+        $this->zaico_carm($tweet, $request, $fileName);
+        $tweet->user_id = $request->user()->id;
+        $tweet->save();
         return redirect()->route('tweets.index');
     }
 
@@ -121,5 +118,15 @@ class TweetController extends Controller
     {
         $tweet->delete();
         return redirect()->route('tweets.index');
+    }
+
+    public function zaico_carm($tweet, $request, $fileName){
+        $tweet->zaico_number = $request->zaico_number;
+        $tweet->zaico_name = $request->zaico_name;
+        $tweet->zaico_image = $fileName;
+        $tweet->zaico_count = $request->zaico_count;
+        $tweet->content = $request->content;
+        $tweet->category = $request->category;
+        $tweet->zaico_storage = $request->zaico_storage;
     }
 }

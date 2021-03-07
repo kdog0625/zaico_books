@@ -48,15 +48,11 @@
                                 <td>公開</td>
                             @endif
                         </tr>
-                        {{--                        <tr>--}}
-                        {{--                            <th>画像</th>--}}
-                        {{--                            <td>{{ $tweet->zaico_image }}</td>--}}
-                        {{--                        </tr>--}}
                         </tbody>
                     </table>
                     <div id="image_box">
                         @if($tweet->zaico_image)
-                            {{ $tweet->zaico_image }}
+                            <img src={{ asset('images/' . $tweet->zaico_image) }}>
                         @endif
                     </div>
                     <div class="d-flex p-2 bd-highlight">

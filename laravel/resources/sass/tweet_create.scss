@@ -41,14 +41,11 @@
 }
 
 .main_left{
-    width: 22%;
     float: left;
     margin-top: 100px;
 }
 
 .main_right{
-    width: 72%;
-    float: right;
     margin-top: 100px;
 }
 
@@ -63,5 +60,9 @@
 
 table td{
     border: 1px solid #ccc;
-    padding: 3px;
+}
+
+.image_box img{
+    width: 500px;
+    height: 500px;
 }

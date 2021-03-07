@@ -48,18 +48,18 @@
                 <table class="main_content">
                     <tbody>
                     <tr>
-                        <th class="text-center" style="width: 34.2%;">型番</th>
-                        <th class="text-center" style="width: 20.9%;">商品名</th>
-                        <th class="text-center" style="width: 11.3%;">在庫数</th>
-                        <th class="text-center" style="width: 20.9%;">カテゴリ</th>
-                        <th class="text-center" style="width: 11.3%;">画像</th>
-                        <th class="text-center" style="width: 8.6%;">更新日</th>
-                        <th class="text-center" style="width: 2.0%;"></th>
+                        <th class="text-center">型番</th>
+                        <th class="text-center">商品名</th>
+                        <th class="text-center">在庫数</th>
+                        <th class="text-center">カテゴリ</th>
+                        <th class="text-center">画像</th>
+                        <th class="text-center">更新日</th>
+                        <th class="text-center"></th>
                     </tr>
                     @if($tweets)
                         @foreach($tweets as $tweet)
                             <tr>
-                                <td class="tr-white"><a class="dropdown-item" href="{{ route('tweets.show', ['tweet' => $tweet]) }}">{{ $tweet->zaico_number }}</a></td>
+                                <td class="tr-white" ><a class="dropdown-item" href="{{ route('tweets.show', ['tweet' => $tweet]) }}">{{ $tweet->zaico_number }}</a></td>
                                 <td class="tr-white"><a class="dropdown-item" href="{{ route('tweets.show', ['tweet' => $tweet]) }}">{{ $tweet->zaico_name }}</a></td>
                                 <td class="tr-white tr-right"><a class="dropdown-item" href="{{ route('tweets.show', ['tweet' => $tweet]) }}">{{ $tweet->zaico_count }}</a></td>
                                 <td class="tr-white"><a class="dropdown-item" href="{{ route('tweets.show', ['tweet' => $tweet]) }}">{{ $tweet->category }}</a></td>
@@ -73,24 +73,11 @@
                             </tr>
                         @endforeach
                     @endif
-                    <!-- @if($user_id)
-                        @foreach($items as $item)
-                            <tr>
-                              <th><a class="dropdown-item" href="">{{ $item->zaico_number }}</a></th>
-                <th>{{ $item->zaico_name }}</th>
-                <th>{{ $item->zaico_count }}</th>
-                <th>{{ $item->category }}</th>
-                <th>{{ $item->zaico_image }}</th>
-                <th>{{ $item->status }}</th>
-              </tr>
-            @endforeach
-                    @endif  -->
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
     @include('common/footer')
-
     </div>
 @endsection
