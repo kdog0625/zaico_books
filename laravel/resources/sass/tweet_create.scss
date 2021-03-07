@@ -1,58 +1,67 @@
 .main-content{
-  margin-top: 20px;
-  margin-bottom: 20px;
-  min-height: 200px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    min-height: 200px;
 }
 
 .create_zaico_number{
-  width: 500px;
-  margin-top: 20px;
-  margin-bottom: 10px;
+    width: 500px;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 .create_zaico_name{
-  width: 500px;
-  margin-top: 20px;
-  margin-bottom: 10px;
+    width: 500px;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 .create_zaico_image{
-  width: 500px;
-  margin-top: 20px;
-  margin-bottom: 10px;
+    width: 500px;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 .create_zaico_number{
-  width: 500px;
-  margin-top: 20px;
-  margin-bottom: 10px;
+    width: 500px;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 .create_zcategory{
-  width: 500px;
-  margin-top: 20px;
-  margin-bottom: 10px;
+    width: 500px;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 .create_content{
-  width: 500px;
-  margin-top: 20px;
-  margin-bottom: 10px;
+    width: 500px;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 .main_left{
-  width: 22%;
-  float: left;
-  margin-top: 100px;
+    width: 22%;
+    float: left;
+    margin-top: 100px;
 }
 
 .main_right{
-  width: 72%;
-  float: right;
-  margin-top: 100px;
+    width: 72%;
+    float: right;
+    margin-top: 100px;
 }
 
 .tr-white{
-  background-color: #fff;
-  color: black;
+    background-color: #fff;
+    color: black;
+}
+
+.show{
+    width: 100%;
+}
+
+table td{
+    border: 1px solid #ccc;
+    padding: 3px;
 }
