@@ -11,10 +11,6 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Auth::routes();
 Route::get('/', 'TweetController@index')->name('tweets.index');
 Route::resource('/tweets', 'TweetController')->except(['index','show'])->middleware('auth');
