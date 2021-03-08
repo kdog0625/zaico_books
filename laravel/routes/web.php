@@ -13,6 +13,5 @@
 
 Auth::routes();
 Route::get('/', 'TweetController@index')->name('tweets.index');
-Route::resource('/tweets', 'TweetController')->except(['index','show'])->middleware('auth');
-Route::resource('/tweets', 'TweetController')->only(['show']);
-Route::resource('/users', 'UserController');
+Route::resource('/tweets', 'TweetController')->middleware('auth');
+Route::resource('/users', 'UserController')->middleware('auth');
