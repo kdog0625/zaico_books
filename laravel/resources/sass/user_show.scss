@@ -2,3 +2,10 @@
     padding: 0;
     margin: 0 auto;
 }
+
+.profile-icon{
+    width: 100px;
+    height: 100px;
+    /*ボックスサイズに合わせて縦横比を維持しながらリサイズ*/
+    object-fit: cover;
+}
