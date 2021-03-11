@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Tweet;
+use App\Models\Tweet;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\TweetRequest;
 use Illuminate\Support\Facades\Storage;
