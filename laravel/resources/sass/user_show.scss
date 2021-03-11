@@ -1,3 +1,12 @@
+.main_content{
+    clear: both;
+    padding: 0 1.5rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    min-height: 200px;
+    height: auto !important;
+}
+
 .user_main{
     padding: 0;
     margin: 0 auto;
@@ -8,4 +17,14 @@
     height: 100px;
     /*ボックスサイズに合わせて縦横比を維持しながらリサイズ*/
     object-fit: cover;
+}
+
+.prof-imagelist{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.prof-imagelist img{
+    height: 220px;
+    width: 220px;
 }
