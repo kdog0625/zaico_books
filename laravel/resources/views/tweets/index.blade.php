@@ -33,48 +33,87 @@
                 </div>
             </form>
         </div>
-        <div class="container">
-            <div class="card mb-4 main_left">
-                <div class="card-header text-center"><i class="fas fa-tags"></i>オススメユーザー</div>
-                <div class="card-body py-3 mx-auto">
-                    <p>ユーザー1</p>
-                    <p>ユーザー2</p>
-                    <p>ユーザー3</p>
-                    <p>ユーザー4</p>
-                    <p>ユーザー5</p>
+        <div class="top-container">
+            <div class="row">
+                <div class="col-lg-2 col-sm-2">
+                    <div class="sidebar-nav">
+                        <div class="nav-sm nav nav-stacked"></div>
+                        <ul class="nav nav-pills nav-stacked main-menu">
+                           <li class="nav-title">
+                               オススメユーザー
+                           </li>
+                            <li>
+                                <a class="ajax-link" href="#">
+                                    <span>オススメユーザー1</span>
+                                </a>
+                                <a class="ajax-link" href="#">
+                                    <span>オススメユーザー2</span>
+                                </a>
+                                <a class="ajax-link" href="#">
+                                    <span>オススメユーザー3</span>
+                                </a>
+                                <a class="ajax-link" href="#">
+                                    <span>オススメユーザー4</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="card main_right">
-                <table class="main_content">
-                    <tbody>
-                    <tr>
-                        <th class="text-center">型番</th>
-                        <th class="text-center">商品名</th>
-                        <th class="text-center">在庫数</th>
-                        <th class="text-center">カテゴリ</th>
-                        <th class="text-center">画像</th>
-                        <th class="text-center">更新日</th>
-                        <th class="text-center"></th>
-                    </tr>
-                    @if($tweets)
-                        @foreach($tweets as $tweet)
-                            <tr>
-                                <td class="tr-white" ><a class="dropdown-item" href="{{ route('tweets.show', ['tweet' => $tweet]) }}">{{ $tweet->zaico_number }}</a></td>
-                                <td class="tr-white"><a class="dropdown-item" href="{{ route('tweets.show', ['tweet' => $tweet]) }}">{{ $tweet->zaico_name }}</a></td>
-                                <td class="tr-white tr-right"><a class="dropdown-item" href="{{ route('tweets.show', ['tweet' => $tweet]) }}">{{ $tweet->zaico_count }}</a></td>
-                                <td class="tr-white"><a class="dropdown-item" href="{{ route('tweets.show', ['tweet' => $tweet]) }}">{{ $tweet->category }}</a></td>
-                                <td class="tr-white">
-                                    @if($tweet->zaico_image)
-                                        <a class="dropdown-item" href="{{ route('tweets.show', ['tweet' => $tweet]) }}"><img class="zaico_ima" src="/images/Tweet/{{ $tweet->zaico_image }}"></a>
+                <div id="content" class="col-lg-10 col-sm-10">
+                    <div class="row">
+                        <div class="box col-md-6">
+                            <div class="box-inner">
+                                <div class="box-content">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-3 col-md-4">在庫合計</div>
+                                        <div class="col-xs-9 col-sm-6 col-md-4">10</div>
+                                        <div class="col-xs-3">
+                                            <a href="#">
+                                                <button class="btn btn-warning btn-xs">在庫確認</button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main_content">
+                        <div class="box">
+                            <div class="box-inner">
+                                <table class="box-content">
+                                    <tbody>
+                                    <tr>
+                                        <th class="text-center" style="width: 16.0%;">型番</th>
+                                        <th class="text-center" style="width: 30.0%;">商品名</th>
+                                        <th class="text-center" style="width: 12.0%;">在庫数</th>
+                                        <th class="text-center" style="width: 23.0%;">カテゴリ</th>
+                                        <th class="text-center" style="width: 6.4%;">画像</th>
+                                        <th class="text-center" style="width: 10.1%;">更新日</th>
+                                        <th class="text-center" style="width: 2.5%;"></th>
+                                    </tr>
+                                    @if($tweets)
+                                        @foreach($tweets as $tweet)
+                                            <tr>
+                                                <th class="tr-white clickable text-break">{{ $tweet->zaico_number }}</th>
+                                                <th class="tr-white clickable text-break">{{ $tweet->zaico_name }}</th>
+                                                <th class="tr-white tr-right clickable text-break">{{ $tweet->zaico_count }}</th>
+                                                <th class="tr-white clickable text-break">{{ $tweet->category }}</th>
+                                                <th class="tr-white clickable text-break">
+                                                    @if($tweet->zaico_image)
+                                                        <img class="zaico_ima" src="/images/{{ $tweet->zaico_image }}">
+                                                    @endif
+                                                </th>
+                                                <th class="tr-white">{{ $tweet->updated_at->format('Y/m/d') }}</th>
+                                                <th class="tr-white"><a href="{{ route('tweets.show', ['tweet' => $tweet]) }}"><i class="fas fa-pen m-0"></i></a></th>
+                                            </tr>
+                                        @endforeach
                                     @endif
-                                </td>
-                                <td class="tr-white"><a class="dropdown-item" href="{{ route('tweets.show', ['tweet' => $tweet]) }}">{{ $tweet->updated_at->format('Y/m/d') }}</a></td>
-                                <td class="tr-white"><a class="dropdown-item" href="{{ route('tweets.show', ['tweet' => $tweet]) }}"><i class="fas fa-pen m-0"></i></a></td>
-                            </tr>
-                        @endforeach
-                    @endif
-                    </tbody>
-                </table>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
