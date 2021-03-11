@@ -50,19 +50,21 @@
                         </tr>
                         </tbody>
                     </table>
-                    <div id="image_box">
-                        @if($tweet->zaico_image)
-                            <img src={{ asset('images/' . $tweet->zaico_image) }}>
-                        @endif
-                    </div>
-                    <div class="d-flex p-2 bd-highlight">
-                        <button type="button"  class="btn btn-primary" onclick="location.href='{{ route('tweets.edit', ['tweet' => $tweet]) }}'">更新する</button>
-                        <form method="POST" action="{{ route('tweets.destroy', ['tweet' => $tweet]) }}">
-                            {{ csrf_field() }}
-                            {{ method_field('delete') }}
-                            <button type="submit" class="btn btn-danger">削除する</button>
-                        </form>
-                        <button type="button"  class="btn btn-light" onclick="history.back()">戻る</button>
+                    <div class="p-2 bd-highlight">
+                        <div id="image_box">
+                            @if($tweet->zaico_image)
+                                <img src="/images/{{ $tweet->zaico_image }}">
+                            @endif
+                        </div>
+                        <div class="d-flex">
+                            <button type="button"  class="btn btn-primary" onclick="location.href='{{ route('tweets.edit', ['tweet' => $tweet]) }}'">更新する</button>
+                            <form method="POST" action="{{ route('tweets.destroy', ['tweet' => $tweet]) }}">
+                                {{ csrf_field() }}
+                                {{ method_field('delete') }}
+                                <button type="submit" class="btn btn-danger">削除する</button>
+                            </form>
+                            <button type="button"  class="btn btn-light" onclick="history.back()">戻る</button>
+                        </div>
                     </div>
                 </div>
             </div>
