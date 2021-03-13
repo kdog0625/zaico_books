@@ -15,3 +15,4 @@ Auth::routes();
 Route::get('/', 'ProductController@index')->name('products.index');
 Route::resource('/products', 'ProductController')->middleware('auth');
 Route::resource('/users', 'UserController')->middleware('auth');
+Route::get('guest', 'Auth\LoginController@guestLogin')->name('login.guest');
