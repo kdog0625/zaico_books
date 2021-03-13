@@ -34,6 +34,10 @@
                             </div>
 
                             <button class="btn btn-block blue-gradient mt-2 mb-2" type="submit">ログイン</button>
+
+                            <a href="{{ route('login.guest') }}" class="btn btn-default btn-block p-3">
+                                かんたんログイン
+                            </a>
                         </form>
 
                         <div class="mt-0">
