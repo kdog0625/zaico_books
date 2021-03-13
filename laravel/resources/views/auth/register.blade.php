@@ -10,7 +10,7 @@
             <div class="register-content-main">
                 <div class="register-content-padding">
                     <div class="register-content-logo">
-                        <a href="{{ route('tweets.index') }}">zaico_books</a>
+                        <a href="{{ route('products.index') }}">zaico_books</a>
                     </div>
                     @include('common/error_card_list')
                     <div class="register-content-register">

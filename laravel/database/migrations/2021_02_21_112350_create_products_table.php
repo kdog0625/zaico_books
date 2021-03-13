@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTweetsTable extends Migration
+class CreateproductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateTweetsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tweets', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('zaico_number')->comment('型番');
             $table->string('zaico_name')->comment('商品名');
@@ -35,6 +35,6 @@ class CreateTweetsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tweets');
+        Schema::dropIfExists('products');
     }
 }

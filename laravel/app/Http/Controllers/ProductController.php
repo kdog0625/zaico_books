@@ -1,14 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Tweet;
+use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\TweetRequest;
+use App\Http\Requests\ProductRequest;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use phpDocumentor\Reflection\Types\This;
 
-class TweetController extends Controller
+class ProductController extends Controller
 {
 
     public function __construct()
@@ -22,10 +22,10 @@ class TweetController extends Controller
      */
     public function index()
     {
-        $tweets = Tweet::where('user_id', Auth::id())->get();
-        $items = Tweet::where('status', 0)->get();
-        $user_id = Tweet::where('user_id','<>', Auth::id())->get();
-        return view('tweets.index')->with(['items' => $items, 'tweets' => $tweets, 'user_id' => $user_id]);
+        $products = Product::where('user_id', Auth::id())->get();
+        $items = Product::where('status', 0)->get();
+        $user_id = Product::where('user_id','<>', Auth::id())->get();
+        return view('products.index')->with(['items' => $items, 'products' => $products, 'user_id' => $user_id]);
     }
 
 
@@ -36,7 +36,7 @@ class TweetController extends Controller
      */
     public function create()
     {
-        return view('tweets.create');
+        return view('products.create');
     }
 
     /**
@@ -45,20 +45,20 @@ class TweetController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(TweetRequest $request, Tweet $tweet)
+    public function store(ProductRequest $request, Product $product)
     {
         if ($file = $request->zaico_image) {
             //getClientOriginalNameでアップロードしたファイルの元の名前を知る事ができる。
             $fileName = time() . $file->getClientOriginalName();
-            $target_path = public_path('images/');
+            $target_path = public_path('images/Product/');
             $file->move($target_path, $fileName);
         } else {
             $fileName = "";
         }
-        $tweet->fill($request->all());
-        $tweet->user_id = $request->user()->id;
-        $tweet->save();
-        return redirect()->route('tweets.index');
+        $this->zaico_carm($product, $request, $fileName);
+        $product->user_id = $request->user()->id;
+        $product->save();
+        return redirect()->route('products.index');
     }
 
     /**
@@ -67,9 +67,9 @@ class TweetController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Tweet $tweet)
+    public function show(Product $product)
     {
-        return view('tweets.show', ['tweet' => $tweet]);
+        return view('products.show', ['product' => $product]);
     }
 
     /**
@@ -78,9 +78,9 @@ class TweetController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tweet $tweet)
+    public function edit(Product $product)
     {
-        return view('tweets.edit', ['tweet' => $tweet]);
+        return view('products.edit', ['product' => $product]);
     }
 
     /**
@@ -90,22 +90,22 @@ class TweetController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(TweetRequest $request, Tweet $tweet)
+    public function update(ProductRequest $request, Product $product)
     {
         $params=$request->all();
-        Storage::delete( $tweet->zaico_image);
+        Storage::delete( $product->zaico_image);
         if ($file = $request->zaico_image) {
             $fileName = time() . $file->getClientOriginalName();
             $params['zaico_image'] = $fileName;
-            $target_path = public_path('images/');
+            $target_path = public_path('images/Product/');
             $file->move($target_path, $fileName);
         } else {
             $fileName = "";
         }
-        $this->zaico_carm($tweet, $request, $fileName);
-        $tweet->user_id = $request->user()->id;
-        $tweet->save();
-        return redirect()->route('tweets.index');
+        $this->zaico_carm($product, $request, $fileName);
+        $product->user_id = $request->user()->id;
+        $product->save();
+        return redirect()->route('products.index');
     }
 
     /**
@@ -114,19 +114,19 @@ class TweetController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tweet $tweet)
+    public function destroy(Product $product)
     {
-        $tweet->delete();
-        return redirect()->route('tweets.index');
+        $product->delete();
+        return redirect()->route('products.index');
     }
 
-    public function zaico_carm($tweet, $request, $fileName){
-        $tweet->zaico_number = $request->zaico_number;
-        $tweet->zaico_name = $request->zaico_name;
-        $tweet->zaico_image = $fileName;
-        $tweet->zaico_count = $request->zaico_count;
-        $tweet->content = $request->content;
-        $tweet->category = $request->category;
-        $tweet->zaico_storage = $request->zaico_storage;
+    public function zaico_carm($product, $request, $fileName){
+        $product->zaico_number = $request->zaico_number;
+        $product->zaico_name = $request->zaico_name;
+        $product->zaico_image = $fileName;
+        $product->zaico_count = $request->zaico_count;
+        $product->content = $request->content;
+        $product->category = $request->category;
+        $product->zaico_storage = $request->zaico_storage;
     }
 }

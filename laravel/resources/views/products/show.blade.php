@@ -14,35 +14,35 @@
                         <tbody>
                         <tr>
                             <th>型番</th>
-                            <td>{{ $tweet->zaico_number }}</td>
+                            <td>{{ $product->zaico_number }}</td>
                         </tr>
                         <tr>
                             <th>商品名</th>
-                            <td>{{ $tweet->zaico_name }}</td>
+                            <td>{{ $product->zaico_name }}</td>
                         </tr>
                         <tr>
                             <th>カテゴリー</th>
-                            <td>{{ $tweet->category }}</td>
+                            <td>{{ $product->category }}</td>
                         </tr>
                         <tr>
                             <th>在庫数</th>
-                            <td>{{ $tweet->zaico_count }}</td>
+                            <td>{{ $product->zaico_count }}</td>
                         </tr>
                         <tr>
                             <th>保管場所</th>
-                            <td>{{ $tweet->zaico_storage }}</td>
+                            <td>{{ $product->zaico_storage }}</td>
                         </tr>
                         <tr>
                             <th>作成日</th>
-                            <td>{{ $tweet->created_at }}</td>
+                            <td>{{ $product->created_at }}</td>
                         </tr>
                         <tr>
                             <th>更新日</th>
-                            <td>{{ $tweet->updated_at }}</td>
+                            <td>{{ $product->updated_at }}</td>
                         </tr>
                         <tr>
                             <th>公開/非公開</th>
-                            @if($tweet->status == 0)
+                            @if($product->status == 0)
                                 <td>非公開</td>
                             @else
                                 <td>公開</td>
@@ -52,13 +52,13 @@
                     </table>
                     <div class="p-2 bd-highlight">
                         <div id="image_box">
-                            @if($tweet->zaico_image)
-                                <img src="/images/{{ $tweet->zaico_image }}">
+                            @if($product->zaico_image)
+                                <img src="/images/{{ $product->zaico_image }}">
                             @endif
                         </div>
                         <div class="d-flex">
-                            <button type="button"  class="btn btn-primary" onclick="location.href='{{ route('tweets.edit', ['tweet' => $tweet]) }}'">更新する</button>
-                            <form method="POST" action="{{ route('tweets.destroy', ['tweet' => $tweet]) }}">
+                            <button type="button"  class="btn btn-primary" onclick="location.href='{{ route('products.edit', ['product' => $product]) }}'">更新する</button>
+                            <form method="POST" action="{{ route('products.destroy', ['product' => $product]) }}">
                                 {{ csrf_field() }}
                                 {{ method_field('delete') }}
                                 <button type="submit" class="btn btn-danger">削除する</button>

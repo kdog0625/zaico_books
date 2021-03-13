@@ -7,7 +7,7 @@
     <div class="wrapper">
         @include('common/nav')
         <div class="search-form">
-            <form method="GET" action="{{ route('tweets.store') }}" enctype="multipart/form-data">
+            <form method="GET" action="{{ route('products.store') }}" enctype="multipart/form-data">
                 <div class="seach-controls container rounded mb-2 p-2">
                     <div class="d-flex justify-content-between flex-column flex-xl-row">
                         <div class="row ml-0 align-items-center">
@@ -81,20 +81,20 @@
                                         <th class="text-center" style="width: 10.1%;">更新日</th>
                                         <th class="text-center" style="width: 2.5%;"></th>
                                     </tr>
-                                    @if($tweets)
-                                        @foreach($tweets as $tweet)
+                                    @if($products)
+                                        @foreach($products as $product)
                                             <tr>
-                                                <th class="tr-white clickable text-break">{{ $tweet->zaico_number }}</th>
-                                                <th class="tr-white clickable text-break">{{ $tweet->zaico_name }}</th>
-                                                <th class="tr-white tr-right clickable text-break">{{ $tweet->zaico_count }}</th>
-                                                <th class="tr-white clickable text-break">{{ $tweet->category }}</th>
+                                                <th class="tr-white clickable text-break">{{ $product->zaico_number }}</th>
+                                                <th class="tr-white clickable text-break">{{ $product->zaico_name }}</th>
+                                                <th class="tr-white tr-right clickable text-break">{{ $product->zaico_count }}</th>
+                                                <th class="tr-white clickable text-break">{{ $product->category }}</th>
                                                 <th class="tr-white clickable text-break">
-                                                    @if($tweet->zaico_image)
-                                                        <img class="zaico_ima" src="/images/{{ $tweet->zaico_image }}">
+                                                    @if($product->zaico_image)
+                                                        <img class="zaico_ima" src="/images/Product/{{ $product->zaico_image }}">
                                                     @endif
                                                 </th>
-                                                <th class="tr-white">{{ $tweet->updated_at->format('Y/m/d') }}</th>
-                                                <th class="tr-white"><a href="{{ route('tweets.show', ['tweet' => $tweet]) }}"><i class="fas fa-pen m-0"></i></a></th>
+                                                <th class="tr-white">{{ $product->updated_at->format('Y/m/d') }}</th>
+                                                <th class="tr-white"><a href="{{ route('products.show', ['product' => $product]) }}"><i class="fas fa-pen m-0"></i></a></th>
                                             </tr>
                                         @endforeach
                                     @endif

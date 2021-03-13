@@ -10,7 +10,7 @@
             <div class="main-content">
                 <h1>新規在庫登録</h1>
                 @include('common/error_card_list')
-                <form method="POST" action="{{ route('tweets.store') }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('products.store') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="create_zaico_number">
                         <label>型番</label>
