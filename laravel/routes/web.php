@@ -12,6 +12,6 @@
 */
 
 Auth::routes();
-Route::get('/', 'TweetController@index')->name('tweets.index');
-Route::resource('/tweets', 'TweetController')->middleware('auth');
+Route::get('/', 'ProductController@index')->name('products.index');
+Route::resource('/products', 'ProductController')->middleware('auth');
 Route::resource('/users', 'UserController')->middleware('auth');
