@@ -8,7 +8,7 @@
         @include('common/nav')
         <div class="search-form">
             <form method="GET" action="{{ route('tweets.store') }}" enctype="multipart/form-data">
-                <div class="seach-controls rounded mb-2 p-2">
+                <div class="seach-controls container rounded mb-2 p-2">
                     <div class="d-flex justify-content-between flex-column flex-xl-row">
                         <div class="row ml-0 align-items-center">
                             <div class="col-auto p-0 pr-2 text-center">
@@ -35,33 +35,25 @@
         </div>
         <div class="top-container">
             <div class="row">
-                <div class="col-lg-2 col-sm-2">
+                <div class="col-lg-2 col-sm-2 mt-3">
                     <div class="sidebar-nav">
                         <div class="nav-sm nav nav-stacked"></div>
-                        <ul class="nav nav-pills nav-stacked main-menu">
-                           <li class="nav-title">
-                               オススメユーザー
-                           </li>
-                            <li>
-                                <a class="ajax-link" href="#">
-                                    <span>オススメユーザー1</span>
-                                </a>
-                                <a class="ajax-link" href="#">
-                                    <span>オススメユーザー2</span>
-                                </a>
-                                <a class="ajax-link" href="#">
-                                    <span>オススメユーザー3</span>
-                                </a>
-                                <a class="ajax-link" href="#">
-                                    <span>オススメユーザー4</span>
-                                </a>
-                            </li>
-                        </ul>
+                        <div class="card mb-4 sidebar-content">
+                            <div class="card-header text-center"><i class="fas fa-user mr-2"></i>オススメユーザー</div>
+                            <div class="card-body main-tag-list py-3 mx-auto">
+                                <p>オススメ1</p>
+                                <p>オススメ2</p>
+                                <p>オススメ3</p>
+                                <p>オススメ4</p>
+                                <p>オススメ5</p>
+                                <p>オススメ6</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div id="content" class="col-lg-10 col-sm-10">
-                    <div class="row">
-                        <div class="box col-md-6">
+                    <div class="main_content">
+                        <div class="box">
                             <div class="box-inner">
                                 <div class="box-content">
                                     <div class="row">
@@ -76,8 +68,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="main_content">
                         <div class="box">
                             <div class="box-inner">
                                 <table class="box-content">
