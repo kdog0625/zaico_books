@@ -22,7 +22,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::where('user_id', Auth::id())->get();
+        $products = Product::where('user_id', Auth::id())->paginate(30);
         $items = Product::where('status', 0)->get();
         $user_id = Product::where('user_id','<>', Auth::id())->get();
         return view('products.index')->with(['items' => $items, 'products' => $products, 'user_id' => $user_id]);

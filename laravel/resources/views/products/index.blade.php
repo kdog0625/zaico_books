@@ -102,6 +102,11 @@
                                 </table>
                             </div>
                         </div>
+                        <div class="col-xs-12 block-middle">
+                            <div class="PaginateContainer">
+                                {{ $products->links() }}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
