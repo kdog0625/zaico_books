@@ -53,7 +53,7 @@
                     <div class="p-2 bd-highlight">
                         <div id="image_box">
                             @if($product->zaico_image)
-                                <img src="/images/{{ $product->zaico_image }}">
+                                <img src="/images/Product/{{ $product->zaico_image }}">
                             @endif
                         </div>
                         <div class="d-flex">
