@@ -11,12 +11,13 @@
 
                 <div class="font-weight-bold text-center border-bottom pb-3 pt-3" style="font-size: 24px">プロフィール編集</div>
 
-                <form method="POST" action="{{ route('users.update') }}" class="p-5" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('users.update', ['user' => $user]) }}" class="p-5" enctype="multipart/form-data">
+                    @method('PATCH')
                     @csrf
                     <span class="avatar-form image-picker">
                         <input type="file" name="avatar" class="d-none" accept="image/png,image/jpeg,image/gif" id="avatar" />
                         <label for="avatar" class="d-inline-block">
-                            <img src="/images/avatar-default.svg" class="rounded-circle" style="object-fit: cover; width: 200px; height: 200px;">
+                            <input type="file" name="zaico_image" class="form-control"  value="{{ $user->prof_image ?? old('prof_image') }}">
                         </label>
                     </span>
 
