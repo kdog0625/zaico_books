@@ -75,9 +75,9 @@
                                     <tr>
                                         <th class="text-center" style="width: 16.0%;">型番</th>
                                         <th class="text-center" style="width: 30.0%;">商品名</th>
-                                        <th class="text-center" style="width: 12.0%;">在庫数</th>
+                                        <th class="text-center" style="width: 6.4%;">在庫数</th>
                                         <th class="text-center" style="width: 23.0%;">カテゴリ</th>
-                                        <th class="text-center" style="width: 6.4%;">画像</th>
+                                        <th class="text-center" style="width: 12.0%;">画像</th>
                                         <th class="text-center" style="width: 10.1%;">更新日</th>
                                         <th class="text-center" style="width: 2.5%;"></th>
                                     </tr>
